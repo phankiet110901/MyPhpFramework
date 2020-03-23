@@ -1,0 +1,10 @@
+1. Những chỉnh sửa trong file .htaccess
+--- Chức năng: thay đổi cấu trúc tên miền
+--- Lưu ý cú pháp:
+---- Câu lệnh:  RewriteCond %{REQUEST_FILENAME} !-f
+----- Nhiệm vụ: Kiểm tra file request có tồn tại hay không
+---- Câu lệnh:  RewriteCond %{REQUEST_FILENAME} !-d
+----- Nhiệm vụ: Kiểm tra thư mục request có tồn tại hay không
+
+2. Cấu hình tên miền
+--- ten_mien.com/controller/action/param
