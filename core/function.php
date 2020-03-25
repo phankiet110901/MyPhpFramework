@@ -9,3 +9,7 @@ function Show404Err(){
 function ShowErr(){
     
 }
+
+function ShowErrNotFoundModel(){
+    
+}

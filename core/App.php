@@ -26,6 +26,8 @@ class App{
             unset($dataUrl[0]);
         }
         require_once $this->controllerUrl.$this->controller.".php";
+        
+        $this->controller = new $this->controller; // khoi tao doi tuong controller
 
         // Xu li action
         if( isset($dataUrl[1]) ){

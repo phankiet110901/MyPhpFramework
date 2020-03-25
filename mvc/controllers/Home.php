@@ -1,13 +1,15 @@
 <?php 
 
-class Home{
+class Home extends Controller{
 
     function Test(){
         echo "test";
     }
 
     function Show(){
-        echo "CONTROLLER-HOME";
+        $model = $this->loadModel("HomeModel");
+        echo "CONTROLLER-HOME <br/>";
+        echo $model->GetDanhSachSinhVien();
     }
 
     function Sum($soThuNhat, $soThuHai){
