@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2><?php echo $data["infoSinhVien"] ?></h2>
+   <?php print_r($data["data"]) ?>
 </body>
 </html>

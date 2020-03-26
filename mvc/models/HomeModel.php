@@ -1,14 +1,11 @@
 <?php
 
-class HomeModel{
+class HomeModel extends DBSql{
     
     public function GetDanhSachSinhVien(){
-        return "Phan Ngo Tuan Kiet";
+        return $this->SelectAll("sinhvien");
     }
 
-    public function GetThongTinSinhVien($idSinhVien){
-        return "Sinh vien: $idSinhVien";
-    }
 
 
 }
