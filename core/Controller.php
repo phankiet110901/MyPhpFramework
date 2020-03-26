@@ -16,8 +16,12 @@ abstract class Controller{
 
     }
 
-    public function loadView($viewName){
-
+    public function loadView($viewName,$data=[]){
+        // kiem tra view co ton tai hay khong
+        if(file_exists($this->viewUrl.$viewName.".php")){
+            require_once $this->viewUrl.$viewName.".php";
+            //return new $viewName;
+        }
     }
 
 }
