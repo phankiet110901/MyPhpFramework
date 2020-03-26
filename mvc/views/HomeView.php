@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-   <?php print_r($data["data"]) ?>
+    <?php foreach($data["data"] as $value ):?>
+        <div class="data"><?php echo $value["id"] ?></div>
+        <div class="data"><?php echo $value["hoTen"] ?></div>
+        <a href="DetailProduct/DeleteSV/SinhVien/<?php echo $value["id"]; ?>" >Xoa</a>
+    <?php endforeach; ?>
 </body>
 </html>

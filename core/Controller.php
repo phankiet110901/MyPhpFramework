@@ -24,6 +24,8 @@ abstract class Controller{
         }
     }
 
+    abstract public function Show();
+
 }
 
 
