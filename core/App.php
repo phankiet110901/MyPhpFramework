@@ -34,6 +34,8 @@ class App{
             // kiem tra action co ton tai hay khong 
             if(method_exists( $this->controller, $dataUrl[1] )){
                 $this->action = $dataUrl[1];
+            }else{
+                $this->action = "Show";
             }
             unset($dataUrl[1]); 
         }

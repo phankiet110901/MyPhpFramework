@@ -13,3 +13,11 @@ function ShowErr(){
 function ShowErrNotFoundModel(){
     
 }
+
+function SetDefaultPage($namePage,$defaulAction, $defaulParam){
+    if($namePage == ""){
+        echo "Welcome to my php framework !!!";
+    }else{
+        $myApp = new App($namePage,$defaulAction,$defaulParam);
+    }
+}
