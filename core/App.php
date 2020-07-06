@@ -13,7 +13,11 @@ class App{
 
         // gan cac tham so mac dinh
         $this->controller = $defaultController;
-        $this->action = $defaultAction;
+        if($defaultAction == ""){
+            $this->action = "Default";
+        }else{
+            $this->action = $defaultAction;
+        }
         $this->param = $defaultParam;
 
         $dataUrl = $this->UrlProcess();
@@ -21,21 +25,28 @@ class App{
         //print_r($dataUrl);
 
         // Xu li controller
-        if( file_exists($this->controllerUrl.$dataUrl[0].".php") ){
+
+        // kiem tra controller co ton tai hay khong 
+        if(file_exists($this->controllerUrl.$dataUrl[0].".php") ){
             $this->controller = $dataUrl[0];
             unset($dataUrl[0]);
-        }
-        require_once $this->controllerUrl.$this->controller.".php";
-        
-        $this->controller = new $this->controller; // khoi tao doi tuong controller
+        }else{
+            // kiem tra default controller co ton tai hay khong 
+           if(file_exists($this->controllerUrl.$defaultController.".php") ){
+                $this->controller = $defaultController;
+           }else{
+               Show404Err();
+           }
 
+        }
+        
+        require_once $this->controllerUrl.$this->controller.".php";
+        $this->controller = new $this->controller; // khoi tao doi tuong controller
         // Xu li action
-        if( isset($dataUrl[1]) ){
+        if(isset($dataUrl[1]) ){
             // kiem tra action co ton tai hay khong 
             if(method_exists( $this->controller, $dataUrl[1] )){
                 $this->action = $dataUrl[1];
-            }else{
-                $this->action = "Show";
             }
             unset($dataUrl[1]); 
         }

@@ -2,20 +2,25 @@
 
  class DBSql{
 
-    private $host = "localhost";
-    private $userName = "root";
-    private $pass = "";
-    private $dbName = "";
-    protected $conn = "";
+    private $host;
+    private $userName;
+    private $pass;
+    private $dbName;
+    protected $conn;
 
-    public function __construct(){
+    public function __construct($dbName,$host,$userName,$pass){
+        $this->host = $host;
+        $this->dbName = $dbName;
+        $this->userName = $userName;
+        $this->pass = $pass;
+
         $this->conn = new mysqli($this->host, $this->userName, $this->pass, $this->dbName); // ket noi database
         mysqli_query($this->conn, "SET NAMES 'utf-8' "); 
     }
 
     public function SelectAll($tableName){
 
-        $sql = "SELECT * FROM `sinhvien` ";
+        $sql = "SELECT * FROM `$tableName` ";
         $res = $this->conn->Query($sql);
 
         $dataOutput = [];
@@ -127,7 +132,7 @@
 
     }
 
-    public function SelectID($tableName, $fieldList, $condition){
+    public function SelectCondition($tableName, $fieldList, $condition){
 
         $fields = "";
 
